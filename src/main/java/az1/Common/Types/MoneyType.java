@@ -1,7 +1,7 @@
 package az1.Common.Types;
 
-public class MoneyType extends IntType {
-
+public class MoneyType extends IntType{
+    
     @Override
     public String ToString(byte[] data) {
         if (data == null) {
@@ -11,4 +11,5 @@ public class MoneyType extends IntType {
         int value = ToInt(data);
         return "" + value + "$";
     }
+
 }

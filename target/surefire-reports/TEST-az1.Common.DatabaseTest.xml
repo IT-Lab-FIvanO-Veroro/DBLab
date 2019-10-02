@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="az1.Common.DatabaseTest" time="0" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="az1.Common.DatabaseTest" time="0.004" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.1+13-LTS"/>
@@ -64,8 +64,8 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="az1.Common.DatabaseTest" name="testGetTableVersions" time="0"/>
+  <testcase classname="az1.Common.DatabaseTest" name="testGetTableVersions" time="0.003"/>
   <testcase classname="az1.Common.DatabaseTest" name="testSize" time="0"/>
-  <testcase classname="az1.Common.DatabaseTest" name="testRemoveTable" time="0"/>
+  <testcase classname="az1.Common.DatabaseTest" name="testRemoveTable" time="0.001"/>
   <testcase classname="az1.Common.DatabaseTest" name="testAddEmptyTable" time="0"/>
 </testsuite>
