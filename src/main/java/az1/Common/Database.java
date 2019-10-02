@@ -172,4 +172,57 @@ public class Database extends VersionedClass {
         tables.add(result);
         return result.GetVersion();
     }
+
+    public long TableInnerJoin(long firstTableVersion, long secondTableVersion,
+                               int firstTableColumn, int secondTableColumn) {
+        Table first = GetTable(firstTableVersion);
+        Table second = GetTable(secondTableVersion);
+
+        ArrayList<AbstractType> types = new ArrayList<>();
+        types.addAll(first.scheme.types);
+        types.addAll(second.scheme.types);
+        Scheme scheme = new Scheme(types);
+        Table result = new Table(scheme, first.name + " INNER JOIN " + second.name);
+
+        for (Row row : first.rows) {
+            ArrayList<byte[]> result_table_row = new ArrayList<>();
+            byte[] join_on = "".getBytes();
+            for (int i = 0; i < row.Size(); ++i) {
+                if (i == firstTableColumn) {
+                    join_on = row.GetField(i);
+                }
+                result_table_row.add(row.GetField(i));
+            }
+
+            String pattern = "";
+            int size_second_table_row = second.rows.get(0).Size();
+
+            for (int i = 0; i < size_second_table_row; ++i) {
+                if (i == secondTableColumn) {
+                    pattern += new String(join_on);
+                    if (i != size_second_table_row - 1) {
+                        pattern += "|";
+                    }
+                } else {
+                    pattern += ".*|";
+                }
+            }
+
+            long vers = TableFind(secondTableVersion, pattern);
+            Table foundTable = GetTable(vers);
+
+            for (Row found_row : foundTable.rows) {
+                for (int i = 0; i < found_row.Size(); ++i) {
+                    result_table_row.add(found_row.GetField(i));
+                }
+            }
+            Row result_row = new Row(result_table_row);
+            result.AddRow(result_row);
+            tables.remove(foundTable);
+        }
+
+        tables.add(result);
+        return result.GetVersion();
+    }
+
 }

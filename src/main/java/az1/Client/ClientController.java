@@ -2,6 +2,7 @@ package az1.Client;
 
 import az1.Common.DatabaseController;
 import az1.Common.Scheme;
+import az1.Common.Table;
 
 import javax.swing.*;
 import java.awt.*;
@@ -269,6 +270,91 @@ public class ClientController {
 
         try {
             lastUsedTable = controller.DatabaseTableFind(tableVersion, pattern);
+        } catch (RemoteException e) {
+            HandleRemoteException(e);
+        }
+
+        RefreshDatabase();
+    }
+
+    public void TableInnerJoin(long tableVersion, int nCols) {
+        String defaultPattern = "";
+        for (int col = 0; col < nCols; ++col) {
+            if (col > 0) {
+                defaultPattern += "|";
+            }
+
+            defaultPattern += "0";
+        }
+
+        String pattern_first_table = (String) JOptionPane.showInputDialog(
+          null,
+          "Enter * on which field you want to join:",
+          "Field request dialog",
+          JOptionPane.PLAIN_MESSAGE,
+          null,
+          null,
+          defaultPattern
+        );
+
+        int first_table_column = 0;
+        String[] strs = pattern_first_table.split("|");
+        for (String str : strs) {
+            if (str == "0") {
+                break;
+            }
+
+            first_table_column++;
+        }
+
+        String second_table_name = (String) JOptionPane.showInputDialog(
+          null,
+          "Enter name of table to which you want to join:",
+          "Table name request dialog",
+          JOptionPane.PLAIN_MESSAGE,
+          null,
+          null,
+          ""
+        );
+
+        String pattern_second_table = (String) JOptionPane.showInputDialog(
+          null,
+          "Enter * on which field you want to join on other table:",
+          "Field request dialog",
+          JOptionPane.PLAIN_MESSAGE,
+          null,
+          null,
+          defaultPattern
+        );
+
+        int second_table_column = 0;
+        strs = pattern_second_table.split("|");
+        for (String str : strs) {
+            if (str == "0") {
+                break;
+            }
+
+            second_table_column++;
+        }
+
+        long secondTableVersion = 0;
+        try {
+            long[] tables_versions = controller.DatabaseGetTableVersions();
+            for (long table_version : tables_versions) {
+               String table = controller.DatabaseTableName(tableVersion);
+               if (table == second_table_name) {
+                   secondTableVersion = table_version;
+                   break;
+               }
+            }
+        } catch (RemoteException e) {
+            HandleRemoteException(e);
+        }
+
+
+        try {
+            lastUsedTable = controller.DatabaseTableInnerJoin(tableVersion, secondTableVersion,
+              first_table_column, second_table_column);
         } catch (RemoteException e) {
             HandleRemoteException(e);
         }

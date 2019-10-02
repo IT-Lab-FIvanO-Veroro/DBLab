@@ -130,4 +130,10 @@ public class ServerController implements DatabaseController {
 	public long DatabaseTableCartesian(long table1Version, long table2Version) throws RemoteException {
 		return database.TableCartesian(table1Version, table2Version);
 	}
+
+    @Override
+    public long DatabaseTableInnerJoin(long firstTableVersion, long secondTableVersion,
+                                       int firstTableColumn, int secondTableColumn) throws RemoteException {
+        return database.TableInnerJoin(firstTableVersion, secondTableVersion, firstTableColumn, secondTableColumn);
+    }
 }

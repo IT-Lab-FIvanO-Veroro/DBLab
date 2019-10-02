@@ -51,7 +51,19 @@ public class EmailType extends AbstractType {
 
     @Override
     public boolean Supports(byte[] data) {
-        return data == null || data.length == 16;
+
+        if (data == null) {
+            return true;
+        }
+
+        try {
+            String s = String.valueOf(new String(data));
+        }
+        catch (Exception e) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override
