@@ -2,7 +2,10 @@ package az1.Common;
 
 import az1.Common.Types.AbstractType;
 import az1.Common.Types.*;
+
+import java.io.Console;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Database extends VersionedClass {
     private static final long serialVersionUID = 19773186723L;
@@ -179,19 +182,29 @@ public class Database extends VersionedClass {
         Table second = GetTable(secondTableVersion);
 
         ArrayList<AbstractType> types = new ArrayList<>();
-        types.addAll(first.scheme.types);
-        types.addAll(second.scheme.types);
+//        types.addAll(first.scheme.types);
+//        types.addAll(second.scheme.types);
+        int first_size = first.scheme.Size();
+        int second_size = second.scheme.Size();
+        for (int i = 0; i < first_size; ++i) {
+            types.add(first.scheme.GetType(i));
+        }
+        for (int i = 0; i < second_size; ++i) {
+            types.add(second.scheme.GetType(i));
+        }
         Scheme scheme = new Scheme(types);
         Table result = new Table(scheme, first.name + " INNER JOIN " + second.name);
 
         for (Row row : first.rows) {
             ArrayList<byte[]> result_table_row = new ArrayList<>();
-            byte[] join_on = "".getBytes();
+            String join_on = "";
             for (int i = 0; i < row.Size(); ++i) {
                 if (i == firstTableColumn) {
-                    join_on = row.GetField(i);
+                    join_on = Arrays.toString(row.GetField(i));
+                    System.console().writer().println(Arrays.toString(new String[]{"Join on = " + join_on}));
                 }
                 result_table_row.add(row.GetField(i));
+                System.console().writer().println(Arrays.toString(row.GetField(i)));
             }
 
             String pattern = "";
@@ -199,12 +212,16 @@ public class Database extends VersionedClass {
 
             for (int i = 0; i < size_second_table_row; ++i) {
                 if (i == secondTableColumn) {
-                    pattern += new String(join_on);
+                    pattern += join_on;
                     if (i != size_second_table_row - 1) {
                         pattern += "|";
                     }
                 } else {
-                    pattern += ".*|";
+                    if (i != size_second_table_row - 1) {
+                        pattern += ".*|";
+                    } else {
+                        pattern += ".*";
+                    }
                 }
             }
 
@@ -214,6 +231,7 @@ public class Database extends VersionedClass {
             for (Row found_row : foundTable.rows) {
                 for (int i = 0; i < found_row.Size(); ++i) {
                     result_table_row.add(found_row.GetField(i));
+                    System.console().writer().println(found_row.GetField(i));
                 }
             }
             Row result_row = new Row(result_table_row);

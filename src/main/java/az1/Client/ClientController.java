@@ -11,6 +11,7 @@ import java.awt.event.HierarchyListener;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ClientController {
     protected ArrayList<DatabaseUpdateHandler> updateListeners;
@@ -300,7 +301,7 @@ public class ClientController {
         int first_table_column = 0;
         String[] strs = pattern_first_table.split("|");
         for (String str : strs) {
-            if (str == "0") {
+            if (str.equals("*")) {
                 break;
             }
 
@@ -330,7 +331,7 @@ public class ClientController {
         int second_table_column = 0;
         strs = pattern_second_table.split("|");
         for (String str : strs) {
-            if (str == "0") {
+            if (str.equals("*")) {
                 break;
             }
 
@@ -341,8 +342,9 @@ public class ClientController {
         try {
             long[] tables_versions = controller.DatabaseGetTableVersions();
             for (long table_version : tables_versions) {
-               String table = controller.DatabaseTableName(tableVersion);
-               if (table == second_table_name) {
+               String table = controller.DatabaseTableName(table_version);
+                System.console().writer().println(Arrays.toString(new String[]{"Table name = " + table}));
+               if (table.equals(second_table_name)) {
                    secondTableVersion = table_version;
                    break;
                }
@@ -355,6 +357,8 @@ public class ClientController {
         try {
             lastUsedTable = controller.DatabaseTableInnerJoin(tableVersion, secondTableVersion,
               first_table_column, second_table_column);
+//            lastUsedTable = controller.DatabaseTableInnerJoin(tableVersion, tableVersion,
+//              first_table_column, second_table_column);
         } catch (RemoteException e) {
             HandleRemoteException(e);
         }
