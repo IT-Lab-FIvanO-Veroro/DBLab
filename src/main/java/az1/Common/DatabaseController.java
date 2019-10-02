@@ -53,8 +53,8 @@ public interface DatabaseController extends Remote {
 //	@WebMethod
 	public long DatabaseTableDifference(long table1Version, long table2Version) throws RemoteException;
 //	@WebMethod
-	public long DatabaseTableCartesian(long table1Version, long table2Version) throws RemoteException;
-
+//	public long DatabaseTableCartesian(long table1Version, long table2Version) throws RemoteException;
+//
 	public long DatabaseTableInnerJoin(long firstTableVersion, long secondTableVersion,
                                        int firstTableColumn, int secondTableColumn) throws RemoteException;
 }

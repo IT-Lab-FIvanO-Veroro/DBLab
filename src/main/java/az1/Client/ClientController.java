@@ -376,18 +376,18 @@ public class ClientController {
 	}
 
 
-	public void TableCartesian() {
-		int table1 = InputTableIndex();
-		int table2 = InputTableIndex();
-		try {
-			lastUsedTable = controller.DatabaseTableCartesian(controller.DatabaseGetTableVersions()[table1],
-					controller.DatabaseGetTableVersions()[table2]);
-		} catch (RemoteException e) {
-			HandleRemoteException(e);
-		}
-
-		RefreshDatabase();
-	}
+///	public void TableCartesian() {
+//		int table1 = InputTableIndex();
+//		int table2 = InputTableIndex();
+//		try {
+//			lastUsedTable = controller.DatabaseTableCartesian(controller.DatabaseGetTableVersions()[table1],
+//					controller.DatabaseGetTableVersions()[table2]);
+//		} catch (RemoteException e) {
+//			HandleRemoteException(e);
+//		}
+//
+//		RefreshDatabase();
+//	}
 
 	private int InputTableIndex() {
 		String errorMessage = "";

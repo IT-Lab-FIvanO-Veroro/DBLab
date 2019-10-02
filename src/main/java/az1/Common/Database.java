@@ -141,37 +141,37 @@ public class Database extends VersionedClass {
         return result.GetVersion();
     }
 
-    public long TableCartesian(long table1Version, long table2Version) {
-        Table first = GetTable(table1Version);
-        Table second = GetTable(table2Version);
-
-        ArrayList<AbstractType> types = new ArrayList<>();
-        for (AbstractType type : first.scheme.types) {
-            types.add(type);
-        }
-        for (AbstractType type : second.scheme.types) {
-            types.add(type);
-        }
-        Scheme scheme = new Scheme(types);
-        Table result = new Table(scheme, first.name + " * " + second.name);
-
-        for (int i = 0; i < first.Size(); i++) {
-            for (int j = 0; j < second.Size(); j++) {
-                long current = result.AddEmptyRow();
-                for (int col = 0; col < first.RowLength(); col++) {
-                    byte[] val = first.GetField(first.GetRowVersions()[i], col);
-                    result.SetField(current, col, val);
-                }
-                for (int col = 0; col < second.RowLength(); col++) {
-                    byte[] val = second.GetField(second.GetRowVersions()[j], col);
-                    result.SetField(current, first.RowLength() + col, val);
-                }
-            }
-        }
-
-        tables.add(result);
-        return result.GetVersion();
-    }
+//    public long TableCartesian(long table1Version, long table2Version) {
+//        Table first = GetTable(table1Version);
+//        Table second = GetTable(table2Version);
+//
+//        ArrayList<AbstractType> types = new ArrayList<>();
+//        for (AbstractType type : first.scheme.types) {
+//            types.add(type);
+//        }
+//        for (AbstractType type : second.scheme.types) {
+//            types.add(type);
+//        }
+//        Scheme scheme = new Scheme(types);
+//        Table result = new Table(scheme, first.name + " * " + second.name);
+//
+//        for (int i = 0; i < first.Size(); i++) {
+//            for (int j = 0; j < second.Size(); j++) {
+//                long current = result.AddEmptyRow();
+//                for (int col = 0; col < first.RowLength(); col++) {
+//                    byte[] val = first.GetField(first.GetRowVersions()[i], col);
+//                    result.SetField(current, col, val);
+//                }
+//                for (int col = 0; col < second.RowLength(); col++) {
+//                    byte[] val = second.GetField(second.GetRowVersions()[j], col);
+//                    result.SetField(current, first.RowLength() + col, val);
+//                }
+//            }
+//        }
+//
+//        tables.add(result);
+//        return result.GetVersion();
+//    }
 
     public long TableInnerJoin(long firstTableVersion, long secondTableVersion,
                                int firstTableColumn, int secondTableColumn) {

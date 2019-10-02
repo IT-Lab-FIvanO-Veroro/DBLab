@@ -126,7 +126,7 @@ public class DatabasePanel extends JPanel implements DatabaseUpdateHandler {
         JButton deleteRowsButton = new JButton("Delete selected rows");
         JButton findButton = new JButton("Find");
 		JButton diffButton = new JButton("Difference");
-		JButton cartesianButton = new JButton("Cartesian product");
+		JButton innerJoinButton = new JButton("Inner Join"); //  JOIN
 
         addEmptyRowButton.addActionListener(new ActionListener() {
             @Override
@@ -169,10 +169,10 @@ public class DatabasePanel extends JPanel implements DatabaseUpdateHandler {
 			}
 		});
 
-		cartesianButton.addActionListener(new ActionListener() {
+		innerJoinButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.TableCartesian();
+				controller.TableInnerJoin(tableVersion, numCols);
 			}
 		});
 
@@ -181,7 +181,7 @@ public class DatabasePanel extends JPanel implements DatabaseUpdateHandler {
         controlPanel.add(deleteRowsButton);
         controlPanel.add(findButton);
 		controlPanel.add(diffButton);
-		controlPanel.add(cartesianButton);
+		controlPanel.add(innerJoinButton);
 
         // Putting all together
         panel.add(controlPanel, BorderLayout.PAGE_START);

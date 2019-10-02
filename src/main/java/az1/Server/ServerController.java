@@ -126,10 +126,10 @@ public class ServerController implements DatabaseController {
 		return database.TableDifference(table1Version, table2Version);
 	}
 
-	@Override
-	public long DatabaseTableCartesian(long table1Version, long table2Version) throws RemoteException {
-		return database.TableCartesian(table1Version, table2Version);
-	}
+//	@Override
+//	public long DatabaseTableCartesian(long table1Version, long table2Version) throws RemoteException {
+//		return database.TableCartesian(table1Version, table2Version);
+//	}
 
     @Override
     public long DatabaseTableInnerJoin(long firstTableVersion, long secondTableVersion,
