@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="az1.Common.RowTest" time="0.002" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="az1.Common.RowTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.1+13-LTS"/>
@@ -66,5 +66,5 @@
   </properties>
   <testcase classname="az1.Common.RowTest" name="testGetField" time="0"/>
   <testcase classname="az1.Common.RowTest" name="testSize" time="0"/>
-  <testcase classname="az1.Common.RowTest" name="testSetField" time="0.002"/>
+  <testcase classname="az1.Common.RowTest" name="testSetField" time="0"/>
 </testsuite>

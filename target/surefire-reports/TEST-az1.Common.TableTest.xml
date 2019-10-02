@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="az1.Common.TableTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="az1.Common.TableTest" time="0.018" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.1+13-LTS"/>
@@ -67,7 +67,7 @@
   <testcase classname="az1.Common.TableTest" name="testName" time="0"/>
   <testcase classname="az1.Common.TableTest" name="testSize" time="0"/>
   <testcase classname="az1.Common.TableTest" name="testAddEmptyRow" time="0"/>
-  <testcase classname="az1.Common.TableTest" name="testGetRowVersions" time="0"/>
-  <testcase classname="az1.Common.TableTest" name="testRowLength" time="0.001"/>
-  <testcase classname="az1.Common.TableTest" name="testRemoveRow" time="0"/>
+  <testcase classname="az1.Common.TableTest" name="testGetRowVersions" time="0.017"/>
+  <testcase classname="az1.Common.TableTest" name="testRowLength" time="0"/>
+  <testcase classname="az1.Common.TableTest" name="testRemoveRow" time="0.001"/>
 </testsuite>

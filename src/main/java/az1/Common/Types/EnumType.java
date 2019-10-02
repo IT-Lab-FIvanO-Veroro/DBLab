@@ -1,7 +1,9 @@
 package az1.Common.Types;
 
 public class EnumType extends IntType {
-    private static final long serialVersionUID = -1681206361769236965L;
+    private static final long serialVersionUID = 3897782117872812694L;
+//    private static final long serialVersionUID = -1681206361769236965L;
+
     public enum EnumValue {
         Bachelor,
         Master,
