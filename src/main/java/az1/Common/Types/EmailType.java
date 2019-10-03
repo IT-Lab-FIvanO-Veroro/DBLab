@@ -7,8 +7,6 @@ import java.util.regex.Pattern;
 
 public class EmailType extends AbstractType {
     private static final long serialVersionUID = 3856522808513372069L;
-//    private static final long serialVersionUID = 3856522808513372069L;
-
 
     @Override
     public String ToString(byte[] data) {
@@ -21,14 +19,8 @@ public class EmailType extends AbstractType {
     }
 
     public String toString(byte[] data) {
-//        ByteBuffer.flip();
-//        ByteBuffer original = ByteBuffer.wrap(data.getBytes("UTF-8"));
-//        byte[] bytes = .getBytes( StandardCharsets.UTF_8 );
         String str = new String(data, StandardCharsets.UTF_8 );
         return str;
-//        charBuffer = StandardCharsets.UTF_16.decode(paramByteBuffer);
-//        text = charBuffer.toString();
-//        System.out.println("UTF_16"+text);
     }
 
     @Override

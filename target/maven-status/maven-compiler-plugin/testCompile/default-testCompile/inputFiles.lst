@@ -1,4 +1,6 @@
-/home/wsl_f/FIvanO/University/4_1/IT/NewLab/DBLab/src/test/java/az1/Common/TableTest.java
-/home/wsl_f/FIvanO/University/4_1/IT/NewLab/DBLab/src/test/java/az1/Common/DatabaseTest.java
-/home/wsl_f/FIvanO/University/4_1/IT/NewLab/DBLab/src/test/java/az1/Common/SchemeTest.java
-/home/wsl_f/FIvanO/University/4_1/IT/NewLab/DBLab/src/test/java/az1/Common/RowTest.java
+/Users/veronikaantonenko/Documents/DB/DBLab/src/test/java/az1/Common/CharTypeTest.java
+/Users/veronikaantonenko/Documents/DB/DBLab/src/test/java/az1/Common/TableTest.java
+/Users/veronikaantonenko/Documents/DB/DBLab/src/test/java/az1/Common/SchemeTest.java
+/Users/veronikaantonenko/Documents/DB/DBLab/src/test/java/az1/Common/EnumTypeTest.java
+/Users/veronikaantonenko/Documents/DB/DBLab/src/test/java/az1/Common/DatabaseTest.java
+/Users/veronikaantonenko/Documents/DB/DBLab/src/test/java/az1/Common/RowTest.java

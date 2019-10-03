@@ -19,7 +19,6 @@ az1/Common/Types/LongType.class
 az1/Client/GUI/ControlPanel$5.class
 az1/Client/GUI/DatabasePanel$2.class
 az1/Common/Scheme.class
-az1/Client/GUI/DatabasePanel$7.class
 az1/Client/GUI/MainPanel.class
 az1/Common/ReflectionDemo.class
 az1/Client/ClientController$2.class
@@ -31,12 +30,12 @@ az1/Common/VersionedClass.class
 az1/Common/ReflectionDemo$TestClass.class
 az1/Client/GUI/DatabasePanel$6.class
 az1/Common/Types/AbstractType.class
-az1/Common/Types/FloatType.class
 az1/Common/Types/EmailType.class
+az1/Common/Types/FloatType.class
 az1/Common/Types/EnumType.class
 az1/Client/GUI/ControlPanel$4.class
 az1/Client/GUI/DatabasePanel.class
 az1/Client/GUI/ControlPanel$1.class
-az1/Common/DatabaseController.class
 az1/Common/Types/IntType.class
+az1/Common/DatabaseController.class
 az1/Common/Row.class
