@@ -64,6 +64,9 @@ public class Scheme implements Serializable {
             else if (type instanceof EmailType) {
                 typeStringValue = EMAIL_TOKEN;
             }
+            else if (type instanceof MoneyType) {
+                typeStringValue = MONEY_TOKEN;
+            }
             else {
                 throw new RuntimeException("Scheme format exception");
             }
@@ -97,6 +100,9 @@ public class Scheme implements Serializable {
             else if (token.equals(EMAIL_TOKEN)) {
                 type = new EmailType();
             }
+            else if (token.equals(MONEY_TOKEN)) {
+                type = new MoneyType();
+            }
             else {
                 throw new RuntimeException("Scheme format exception");
             }
@@ -114,6 +120,7 @@ public class Scheme implements Serializable {
     public static final String CHAR_TOKEN = "Char";
     public static final String LONG_TOKEN = "Long";
     public static final String EMAIL_TOKEN = "Email";
+    public static final String MONEY_TOKEN = "Money";
 
 
     public boolean RowMatch(Row row, String mergedPattern) {

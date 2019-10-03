@@ -17,9 +17,11 @@ public class DatabaseTest {
     private static Database database;
     private static long table1;
     private static long table2;
+//    private static long table3;
     private static Scheme scheme;
     private static ArrayList<AbstractType> types;
     private static String name = "Table";
+
 
     @Before
     public void setUp() throws Exception {
@@ -31,6 +33,11 @@ public class DatabaseTest {
         database = new Database();
         table1 = database.AddEmptyTable(scheme, name);
         table2 = database.AddEmptyTable(scheme, name);
+//        table11 = database.AddEmptyTable(scheme, name);
+//        table12 = database.AddEmptyTable(scheme, name);
+//        database.TableAddEmptyRow(table11);
+//        database.TableAddEmptyRow(table12);
+//        table3 = database.TableInnerJoin(table11, table12, 1, 1);
     }
 
     @Test
@@ -43,6 +50,14 @@ public class DatabaseTest {
         long table3 = database.AddEmptyTable(scheme, name);
         assertArrayEquals(new long[] { table1, table2, table3 }, database.GetTableVersions());
     }
+
+    @Test(expected = AssertionError.class)
+    public void tableInnerJoinShouldThrowAssertErrorWhenTableLengthDiffer() {
+        int firstCol = 2;
+        int secCol = 1;
+        assertArrayEquals(new long[] { table1, table2, firstCol, secCol }, database.GetTableVersions());
+    }
+
 
     @Test
     public void testRemoveTable() throws Exception {

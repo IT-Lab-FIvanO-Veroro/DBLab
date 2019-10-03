@@ -192,12 +192,12 @@ public class ClientController {
                 null,
                 "Enter scheme in a following way. " +
                 "Concatenate types, separating with comma to a single string.\n" +
-                "Supported types are Int, Float, Char, Enum, Email",
+                "Supported types are Int, Float, Char, Enum, Email, Money",
                 "Scheme request dialog",
                 JOptionPane.PLAIN_MESSAGE,
                 null,
                 null,
-                "Int,Enum,Email"
+                "Int,Enum,Email,Money"
         );
 
         if (line == null) {

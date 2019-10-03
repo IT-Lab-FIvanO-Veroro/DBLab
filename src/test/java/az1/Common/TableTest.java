@@ -22,19 +22,19 @@ public class TableTest {
 
     @Before
     public void setUp() throws Exception {
-        types = new ArrayList<AbstractType>();
+        types = new ArrayList<>();
         types.add(new IntType());
         types.add(new EnumType());
         scheme = new Scheme(types);
 
         table = new Table(scheme, name);
 
-        fields1 = new ArrayList<byte[]>();
+        fields1 = new ArrayList<>();
         fields1.add(new byte[] { 1, 2, 3, 4 });
         fields1.add(new byte[] { 80, 104, 68 });
         row1 = new Row(fields1);
 
-        fields2 = new ArrayList<byte[]>();
+        fields2 = new ArrayList<>();
         fields2.add(new byte[] { 0, 1, 2, 3});
         fields2.add(new byte[] { 80, 104, 68 });
         row2 = new Row(fields2);

@@ -125,7 +125,7 @@ public class DatabasePanel extends JPanel implements DatabaseUpdateHandler {
         JButton deleteTableButton = new JButton("Delete table");
         JButton deleteRowsButton = new JButton("Delete selected rows");
         JButton findButton = new JButton("Find");
-		JButton diffButton = new JButton("Difference");
+//		JButton diffButton = new JButton("Difference");
 		JButton innerJoinButton = new JButton("Inner Join"); //  JOIN
 
         addEmptyRowButton.addActionListener(new ActionListener() {
@@ -162,12 +162,12 @@ public class DatabasePanel extends JPanel implements DatabaseUpdateHandler {
             }
         });
 
-		diffButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				controller.TableDifference();
-			}
-		});
+//		diffButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				controller.TableDifference();
+//			}
+//		});
 
 		innerJoinButton.addActionListener(new ActionListener() {
 			@Override
@@ -180,7 +180,7 @@ public class DatabasePanel extends JPanel implements DatabaseUpdateHandler {
         controlPanel.add(deleteTableButton);
         controlPanel.add(deleteRowsButton);
         controlPanel.add(findButton);
-		controlPanel.add(diffButton);
+//		controlPanel.add(diffButton);
 		controlPanel.add(innerJoinButton);
 
         // Putting all together
