@@ -9,6 +9,7 @@ az1/Client/DatabaseUpdateHandler.class
 az1/Client/GUI/DatabasePanel$1.class
 az1/Client/ClientController$1.class
 az1/Client/GUI/DatabasePanel$5.class
+az1/Server/RmiJrmpServer.class
 az1/Client/GUI/ControlPanel$3.class
 az1/Common/VersionAssigner.class
 az1/Common/Table$1.class
@@ -30,6 +31,7 @@ az1/Common/VersionedClass.class
 az1/Common/ReflectionDemo$TestClass.class
 az1/Client/GUI/DatabasePanel$6.class
 az1/Common/Types/AbstractType.class
+az1/Server/RmiIiopServer.class
 az1/Common/Types/EmailType.class
 az1/Common/Types/FloatType.class
 az1/Common/Types/EnumType.class
