@@ -167,7 +167,7 @@ public class ClientController {
                 JOptionPane.PLAIN_MESSAGE,
                 null,
                 null,
-                "sample.db"
+                "test.db"
 //                "C:/Users/artem/Dropbox/temp/win.db"
 //                "C:/Users/artem/Dropbox/temp/winx.db"
 //                "/Users/artemhb/Dropbox/temp/winx.db"
@@ -301,12 +301,17 @@ public class ClientController {
         int first_table_column = 0;
         String[] strs = pattern_first_table.split("|");
         for (String str : strs) {
+            if (str.equals("|")) {
+                continue;
+            }
+            System.console().writer().println("first_table: " + str);
             if (str.equals("*")) {
                 break;
             }
 
             first_table_column++;
         }
+        System.console().writer().println("first_table_column = " + first_table_column);
 
         String second_table_name = (String) JOptionPane.showInputDialog(
           null,
@@ -331,12 +336,17 @@ public class ClientController {
         int second_table_column = 0;
         strs = pattern_second_table.split("|");
         for (String str : strs) {
+            if (str.equals("|")) {
+                continue;
+            }
+            System.console().writer().println("second_table: " + str);
             if (str.equals("*")) {
                 break;
             }
 
             second_table_column++;
         }
+        System.console().writer().println("second_table_column = " + second_table_column);
 
         long secondTableVersion = 0;
         try {

@@ -32,12 +32,12 @@ az1/Common/ReflectionDemo$TestClass.class
 az1/Client/GUI/DatabasePanel$6.class
 az1/Common/Types/AbstractType.class
 az1/Server/RmiIiopServer.class
-az1/Common/Types/EmailType.class
 az1/Common/Types/FloatType.class
+az1/Common/Types/EmailType.class
 az1/Common/Types/EnumType.class
 az1/Client/GUI/ControlPanel$4.class
 az1/Client/GUI/DatabasePanel.class
 az1/Client/GUI/ControlPanel$1.class
-az1/Common/Types/IntType.class
 az1/Common/DatabaseController.class
+az1/Common/Types/IntType.class
 az1/Common/Row.class

@@ -27,7 +27,7 @@ public class RmiIiopServer {
 
         try {
             DatabaseController controller = new ServerController();
-            PortableRemoteObject.exportObject(controller); //ХУЙНЯ
+            PortableRemoteObject.exportObject(controller);
             Context context = new InitialContext();
             context.rebind("RmiIiopServer", controller);
         } catch (RemoteException e) {

@@ -200,7 +200,8 @@ public class Database extends VersionedClass {
             String join_on = "";
             for (int i = 0; i < row.Size(); ++i) {
                 if (i == firstTableColumn) {
-                    join_on = Arrays.toString(row.GetField(i));
+//                    join_on = Arrays.toString(row.GetField(i));
+                    join_on = types.get(i).ToString(row.GetField(i));
                     System.console().writer().println(Arrays.toString(new String[]{"Join on = " + join_on}));
                 }
                 result_table_row.add(row.GetField(i));
@@ -224,18 +225,20 @@ public class Database extends VersionedClass {
                     }
                 }
             }
+            System.console().writer().println("pattern: " + pattern);
 
             long vers = TableFind(secondTableVersion, pattern);
             Table foundTable = GetTable(vers);
 
             for (Row found_row : foundTable.rows) {
+                ArrayList<byte[]> future_row = new ArrayList<>(result_table_row);
                 for (int i = 0; i < found_row.Size(); ++i) {
-                    result_table_row.add(found_row.GetField(i));
+                    future_row.add(found_row.GetField(i));
                     System.console().writer().println(found_row.GetField(i));
                 }
+                Row result_row = new Row(future_row);
+                result.AddRow(result_row);
             }
-            Row result_row = new Row(result_table_row);
-            result.AddRow(result_row);
             tables.remove(foundTable);
         }
 
