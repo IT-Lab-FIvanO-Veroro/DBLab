@@ -376,7 +376,37 @@ public class ClientController {
         RefreshDatabase();
     }
 
-	public void TableDifference() {
+    public void TableProjection(long tableVersion, int nCols) {
+        StringBuilder defaultPattern = new StringBuilder();
+        for (int col = 0; col < nCols; ++col) {
+            if (col > 0) {
+                defaultPattern.append("|");
+            }
+
+            defaultPattern.append("0");
+        }
+
+        String pattern = (String) JOptionPane.showInputDialog(
+          null,
+          "Choose columns for projection. Write * instead 0:",
+          "Pattern request dialog",
+          JOptionPane.PLAIN_MESSAGE,
+          null,
+          null,
+          defaultPattern.toString()
+        );
+
+        try {
+            lastUsedTable = controller.DatabaseTableProjection(tableVersion, pattern);
+        } catch (RemoteException e) {
+            HandleRemoteException(e);
+        }
+
+        RefreshDatabase();
+    }
+
+
+    public void TableDifference() {
 		int table1 = InputTableIndex();
 		int table2 = InputTableIndex();
 		try {

@@ -136,4 +136,9 @@ public class ServerController implements DatabaseController {
                                        int firstTableColumn, int secondTableColumn) throws RemoteException {
         return database.TableInnerJoin(firstTableVersion, secondTableVersion, firstTableColumn, secondTableColumn);
     }
+
+  @Override
+  public long DatabaseTableProjection(long tableVersion, String pattern) {
+    return database.TableProjection(tableVersion, pattern);
+  }
 }

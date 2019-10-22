@@ -246,4 +246,47 @@ public class Database extends VersionedClass {
         return result.GetVersion();
     }
 
+    public long TableProjection(long tableVersion, String pattern) {
+        Table table = GetTable(tableVersion);
+        ArrayList<AbstractType> types = new ArrayList<>();
+        ArrayList<Integer> columns = new ArrayList<>();
+
+        String[] strs = pattern.split("|");
+        int i = 0;
+        for (String str : strs) {
+            if (str.equals("|")) {
+                continue;
+            }
+
+            if (str.equals("*")) {
+                types.add(table.scheme.GetType(i));
+                columns.add(1);
+                i++;
+                continue;
+            }
+
+            columns.add(0);
+            i++;
+        }
+
+        Scheme scheme = new Scheme(types);
+        Table result = new Table(scheme, table.name + " Projection");
+
+        for (Row row : table.rows) {
+            ArrayList<byte[]> result_table_row = new ArrayList<>();
+            String join_on = "";
+            for (int j = 0; j < row.Size(); ++j) {
+                if (1 == columns.get(j)) {
+                    result_table_row.add(row.GetField(j));
+                }
+            }
+
+            Row new_row = new Row(result_table_row);
+            result.AddRow(new_row);
+        }
+
+        tables.add(result);
+        return result.GetVersion();
+
+    }
 }

@@ -57,4 +57,6 @@ public interface DatabaseController extends Remote {
 //
 	public long DatabaseTableInnerJoin(long firstTableVersion, long secondTableVersion,
                                        int firstTableColumn, int secondTableColumn) throws RemoteException;
+
+  public long DatabaseTableProjection(long tableVersion, String pattern) throws RemoteException;;
 }
