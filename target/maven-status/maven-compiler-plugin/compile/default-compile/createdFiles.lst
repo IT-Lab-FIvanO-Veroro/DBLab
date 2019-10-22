@@ -20,6 +20,7 @@ az1/Common/Types/LongType.class
 az1/Client/GUI/ControlPanel$5.class
 az1/Client/GUI/DatabasePanel$2.class
 az1/Common/Scheme.class
+az1/Client/GUI/DatabasePanel$7.class
 az1/Client/GUI/MainPanel.class
 az1/Common/ReflectionDemo.class
 az1/Client/ClientController$2.class
